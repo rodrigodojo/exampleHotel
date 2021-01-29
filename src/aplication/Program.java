@@ -62,7 +62,6 @@ public class Program {
 			}
 		}while(option != 'n');
 		
-		
 		System.out.println("Ended Aplication!");
 		sc.close();
 	}
