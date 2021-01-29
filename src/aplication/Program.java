@@ -5,6 +5,7 @@ import java.text.SimpleDateFormat;
 import java.util.*;
 
 import entities.Reservation;
+import exceptions.DomainException;
 
 public class Program {
 
@@ -43,12 +44,26 @@ public class Program {
 			}
 			catch(ParseException e) {
 				System.out.println("Invalid date format");
+				System.out.println("Execute Reservation (y/n) ? ");
+				sc.next();
+				option = sc.next().charAt(0);
 			}
-			catch(IllegalArgumentException e) {
+			catch(DomainException e) {
 				System.out.println("Error in resevation: " + e.getMessage());
+				System.out.println("Execute Reservation (y/n) ? ");
+				sc.next();
+				option = sc.next().charAt(0);
+			}
+			catch(RuntimeException e) {
+				System.out.println("Unexpected error");
+				System.out.println("Execute Reservation (y/n) ? ");
+				sc.next();
+				option = sc.next().charAt(0);
 			}
 		}while(option != 'n');
 		
+		
+		System.out.println("Ended Aplication!");
 		sc.close();
 	}
 
